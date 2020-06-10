@@ -13,6 +13,12 @@ class Synchronized(T)
     end
   end
 
+  def inspect(io : IO) : ::Nil
+    io << "#<" << {{@type.name.id.stringify}} << ":0x"
+    object_id.to_s(io, 16)
+    io << '>'
+  end
+
   def safe_inner
     synchronize do
       @inner.dup

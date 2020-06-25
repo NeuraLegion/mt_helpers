@@ -1,4 +1,4 @@
-require "./mt_helpers/*"
+require "./mt_helpers/**"
 
 module MtHelpers
   VERSION = "0.1.0"

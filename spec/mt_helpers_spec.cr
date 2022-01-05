@@ -20,6 +20,12 @@ describe MtHelpers do
     hash[1].should eq("bar")
   end
 
+  it "works on hash with block" do
+    hash = SafeHash(Int32, Array(String)).new { |h, k| h[k] = Array(String).new }
+    hash[1] << "test"
+    hash[1][0].should eq("test")
+  end
+
   it "works on array" do
     array = SafeArray(Int32).new
     array << 1
